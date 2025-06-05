@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+
+<div class="container">
+  <div class="alert alert-info text-center mt-5" role="alert">
+    Contact Us!
+  </div>
+</div>
+
+<div class="container mt-5">
+  <form class="row g-3" onsubmit="return confirmReceipt()">
+    <div class="col-md-6">
+      <label for="firstname" class="form-label">Firstname</label>
+      <input type="text" class="form-control" id="firstname" required>
+    </div>
+
+    <div class="col-md-6">
+      <label for="lastname" class="form-label">Lastname</label>
+      <input type="text" class="form-control" id="lastname" required>
+    </div>
+
+    <div class="col-12">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" required>
+    </div>
+
+    <div class="col-12">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input type="text" class="form-control" id="phoneNumber" required>
+    </div>
+
+    <div class="col-12">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" id="message" rows="4" required></textarea>
+    </div>
+
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src = "{% static 'contact-us.js' %}"></script>
+
+{% endblock %}

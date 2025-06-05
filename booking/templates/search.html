@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+ {%  if not schedules %}
+   <div class="alert alert-primary text-center mb-4" role="alert">
+    Select a range to view one-way flights departing between these dates.
+   </div>
+   {% endif %}
+
+<!-- Below div creates flight search bar -->
+<div class="booking-form-box">
+    <form method="get" action='/search' id="search_form">
+     <div class="booking-form">
+
+         <div class="form-group">
+         <label >Origin</label>
+         <select name = 'origin' class = 'form-select form-select-sm' id="origin">
+             <option value = 'NZNE'>North Shore Dairy Flat Airport</option>
+             <option value = 'NZRO'>Rotorua Airport</option>
+             <option value = 'NZCI'>Tuuta Airport</option>
+             <option value = 'NZGB'>Claris Airport</option>
+             <option value = 'NZTL'>Lake Tekapo Airport</option>
+             <option value = 'YMML'>Melbourne Airport</option>
+
+         </select>
+         </div>
+
+         <div class="form-group">
+         <label >Destination</label>
+         <select name = 'destination' class = 'form-select form-select-sm' id="destination">
+             <option value = 'NZNE'>North Shore Dairy Flat Airport</option>
+             <option value = 'NZRO'>Rotorua Airport</option>
+             <option value = 'NZCI'>Tuuta Airport</option>
+             <option value = 'NZGB'>Claris Airport</option>
+             <option value = 'NZTL'>Lake Tekapo Airport</option>
+             <option value = 'YMML'>Melbourne Airport</option>
+
+         </select>
+        </div>
+
+
+         <div class="input-grp">
+             <label >From</label>
+             <input type = "date" name = "from_date" class="form-control select-date" required id = "from_date">
+         </div>
+
+         <div class="input-grp">
+             <label >To</label>
+             <input type = "date" name="to_date" class="form-control select-date" required id = "to_date">
+         </div>
+
+         <div class = "input-grp">
+             <button type ="submit" class = "btn btn-outline-primary" id="search_button">Search FLights</button>
+         </div>
+
+     </div>
+          </form>
+
+</div>
+
+
+<!-- Below div will display flight schedule list-->
+{% if schedules %}
+<div class="alert alert-success text-center mb-4" role="alert">
+    Flight Schedule from {{ origin }} to {{ dest }} from {{ from_date }} to {{ to_date }}
+</div>
+<div class="container">
+    {% for schedule in schedules %}
+    <div class="card mb-3 shadow-sm">
+        <h5 class="card-header">Flight Information</h5>
+        <div class="card-body">
+            <form method="post" action="/search">
+                {% csrf_token %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Schedule ID:</strong> SCH{{ schedule.schedId }}</li>
+                    <li class="list-group-item"><strong>Flight Number:</strong> {{ schedule.flightNo }}</li>
+                    <li class="list-group-item"><strong>Departure:</strong> {{ schedule.depDate }}</li>
+                    <li class="list-group-item"><strong>Arrival:</strong> {{ schedule.arrDate }}</li>
+                     <li class="list-group-item"><strong>Seats:</strong> {{ schedule.seats }}</li>
+                    <li class="list-group-item"><strong>Price:</strong> {{ schedule.price }}</li>
+
+                </ul>
+                <input type="hidden" name="scheid" value="{{ schedule.schedId }}">
+                <div class="mt-3">
+                    <label for="customers" class="form-label">Select Customer</label>
+                    <select id="customers" name="customers" class="form-select mb-2">
+                        {% for x in customers %}
+                        <option value="{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-outline-primary w-100 mt-2" id="book_button">Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<!-- Below div will display any error message. -->
+{% if message %}
+<div class = "container">
+<div class="card mb-3 shadow-sm mt-4">
+    <div class="card-header bg-danger text-white">Unexpected Error</div>
+    <div class="card-body">
+        {% for key, value in message.items %}
+        <p class="card-text">{{ key }}: {{ value }}</p>
+        {% endfor %}
+    </div>
+ </div>
+</div>
+{% endif %}
+
+
+
+
+
+
+<script src = "{% static 'form-handler.js' %}"></script>
+
+
+    {% endblock %}

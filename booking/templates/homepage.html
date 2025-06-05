@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+
+    <body>
+
+<div class="container mt-5 text-center">
+  <h2 class="fw-bold mb-4">Welcome to Dairy Flat Airport</h2>
+  <p class="lead text-muted mb-5">
+    Connecting the North Shore to the skies—fast, friendly, and just minutes away.
+  </p>
+</div>
+
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <!-- About the Airport -->
+    <div class="col">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-3">About Us</h4>
+          <p class="card-text">
+            Dairy Flat Airport is a regional airport located 30 km north of Auckland’s CBD, just a 25-minute drive via the Northern Motorway. Conveniently positioned near Albany and Silverdale, it offers easy access for travelers on the North Shore.
+          </p>
+          <p class="card-text">
+            Established in the late 1950s, the airport has since grown into one of New Zealand’s busiest general aviation hubs, supporting both commercial and private operations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Airlines -->
+    <div class="col">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-3">Airlines & Destinations</h4>
+          <p class="card-text">
+            Dairy Flat Airport is served by a mix of scheduled and charter airlines, providing regular connections to destinations across New Zealand and internationally. All flights operate from the main terminal, conveniently located at the heart of the airport.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="hero-carosuel" class="carousel slide mt-4">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#hero-carosuel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#hero-carosuel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#hero-carosuel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active c-item">
+      <img src="{% static 'hondajet.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+        <p class="mt-5 fs-3 text-uppercase">Fly Local, Fly Reliable</p>
+        <h1 class="display-1 fw-bolder text-capitalize">Dairy Flat Airport</h1>
+        <p>Explore Melbourne, Rotorua, Chatham Islands, and Beyond!</p>
+        <form method="get" action="/search">
+          <input type="submit" class="btn btn-primary px-4 py-2 fs-5 mt-5" value="Search Flights">
+        </form>
+      </div>
+    </div>
+
+    <div class="carousel-item c-item">
+      <img src="{% static 'syberjet.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+        <h3 class="mt-1 display-1 fw-bolder text-capitalize">Jets, we operate!</h3>
+        <div class="schedule-table">
+          <ul>
+            <li><strong>SyberJet</strong> – Long-range, luxury jet</li>
+            <li><strong>HondaJet</strong> – Efficient light business jet</li>
+            <li><strong>CirrusJet</strong> – Agile for short regional hops</li>
+          </ul>
+        </div>
+        <form method="get" action="/search">
+          <input type="submit" class="btn btn-primary px-4 py-2 fs-5 mt-5" value="Search Flights">
+        </form>
+      </div>
+    </div>
+
+    <div class="carousel-item c-item">
+      <img src="{% static 'aerodome.jpg' %}" class="d-block w-100 c-img" alt="...">
+      <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+
+        <div class="schedule-table">
+            <h3 class = "display-5 fw-bolder mt-5">Talk to us today</h3>
+            <p>Interested in doing business at North Shore Airport?</p>
+            <p>Contact us today to discuss how your business can flourish!</p>
+        </div>
+        <form method="get" action="/contactus">
+          <input type="submit" class="btn btn-primary px-4 py-2 fs-5 mt-5" value="Contact Us">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#hero-carosuel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#hero-carosuel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="container py-5">
+  <h1 class="mb-4 text-center">Flight Schedules</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <!-- SyberJet to Melbourne -->
+    <div class="col">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title">Prestige Service to Melbourne</h5>
+          <p class="card-text">
+            Weekly service. <br>
+            <strong>Outbound:</strong> Friday mid-morning (from Dairy Flat)<br>
+            <strong>Inbound:</strong> Sunday mid-afternoon (from Melbourne)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cirrus to Rotorua -->
+    <div class="col">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title">Shuttle to Rotorua</h5>
+          <p class="card-text">
+            Operates Monday to Friday (twice daily). <br>
+            <strong>First Flight:</strong> Early morning (from Dairy Flat), returns soon after.<br>
+            <strong>Second Flight:</strong> Late afternoon (from Dairy Flat), returns in evening.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cirrus to Great Barrier Island -->
+    <div class="col">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title">Great Barrier Island Service</h5>
+          <p class="card-text">
+            Three times weekly. <br>
+            <strong>Outbound:</strong> Mon, Wed, Fri (morning)<br>
+            <strong>Return:</strong> Tue, Thu, Sat (morning)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HondaJet to Chatham Islands -->
+    <div class="col">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title">Chatham Islands Service</h5>
+          <p class="card-text">
+            Twice weekly. <br>
+            <strong>Outbound:</strong> Tuesday and Friday (from Dairy Flat)<br>
+            <strong>Return:</strong> Wednesday and Saturday (from Tuuta)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HondaJet to Lake Tekapo -->
+    <div class="col">
+      <div class="card h-100 shadow">
+        <div class="card-body">
+          <h5 class="card-title">Lake Tekapo Service</h5>
+          <p class="card-text">
+            Weekly service. <br>
+            <strong>Outbound:</strong> Monday (from Dairy Flat)<br>
+            <strong>Return:</strong> Tuesday (from Tekapo)
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+    {% endblock %}

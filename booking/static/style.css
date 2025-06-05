@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.logo{
+    cursor: pointer;
+    width: 110px;
+    height: 100%;
+
+}
+
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display : inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover{
+    color: #0088a9 !important;
+
+}
+
+button{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border : none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgba(0,136,169,0.8);
+}
+
+.image-container{
+    display: flex;
+    justify-content : space-around;
+    align-items: center;
+    max-width: 1200;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.image-container img{
+    width: 200px;
+    height:150px;
+    object-fit: cover;
+    margin: 0 10px;
+}
+
+h1, p{
+     font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+.booking-form-box{
+    max-width: auto;
+    border: 1px solid #ced4da;
+    margin: 10px auto 0;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+
+}
+
+.booking-form{
+    padding: 20px 20px 20px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.booking-form label{
+    margin-bottom: 5px;
+    margin-top: 10px;
+
+
+}
+
+.form-control{
+    font-size: 12px;
+    border-radius: 0;
+    background:  transparent;
+    box-shadow: none;
+
+}
+
+#search_button{
+margin-top: 26px;
+}
+
+.schedule-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Optional if you want to handle overflow */
+  flex-direction : column;
+}
+
+
+.schedule-card {
+       /* This applies flex inside the card */
+  flex-direction: column; /* Or 'row' if you want horizontal alignment */
+  gap: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+
+}
+
+.schedule-details {
+ list-style : none;
+ display: flex;
+ justify-content: space-evenly;
+}
+
+
+.c-item{
+  height: 750px;
+
+}
+
+.c-img{
+  height: 100%;
+  object-fit: cover;
+   filter: brightness(0.6);
+}
+
+footer{
+
+
+ left: 0;
+ bottom: 0;
+ width: 100%;
+
+}
