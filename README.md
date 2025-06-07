@@ -54,33 +54,33 @@ git clone https://github.com/RabThapa1/django-web-portfolio.git
 cd django-web-portfolio
 ```
 
-2. **Create and Activate a virtual environment
+2. **Create and Activate a virtual environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. **Install Dependencies
+3. **Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Apply migrations
+4. **Apply migrations**
 ```bash
 python manage.py migrate
 ```
 
-5. **Create Superuser(for admin access)
+5. **Create Superuser(for admin access)**
 ```bash
 python manage.py createsuperuser
 ```
 
-6. **Seed the database
+6. **Seed the database**
  ```bash
 python populatedb.py
 ```
 
-7.**Run the development server ( Open your browser at http://localhost:8000)
+7.**Run the development server ( Open your browser at http://localhost:8000)**
  ```bash
 python populatedb.py
 ```
@@ -88,12 +88,12 @@ python populatedb.py
 ---
 🐳 Docker Setup (Optional)
 
-1. **Build Docker image
+1. **Build Docker image**
 ```bash
 docker build -t django-airline .
 ```
 
-2. **Run Container
+2. **Run Container**
 ```bash
 docker run -d -p 8000:8000 django-airline
 ```
